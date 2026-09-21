@@ -23,7 +23,7 @@ export {calcularIMC, tieneIMCMayor, resultado1};
 
 //Ejercico 2
 
-function sumar(){
+function sumarMucho(){
     let total=0;
     let i;
     for( i=0;i < arguments.length ;i++){
@@ -37,11 +37,15 @@ function dividir(num1,num2){
  
 function sacarMedia(){
     let totalMedia=0;
-    totalMedia = sumar(...arguments);
+    let i;
+    for(i = 0; arguments.length; i++ ){
+        totalMedia +=  arguments[i];
+    }
+    
     return dividir(totalMedia , arguments.length);
 
 }
-function compararParticipantes(intJuan, intMiguel, intMaria){
+function compararParticipantes(intJuan, intMiguel, intMaria ){
     if(intJuan > intMiguel && intJuan > intMaria){
             return "Juan tiene mayor media"
     }else if(intMiguel > intMaria && intMiguel > intJuan){
@@ -220,3 +224,11 @@ function calcularPonencia(num1, num2){
 
 }
 export{calcularPonencia};
+
+
+//Ejercicio 5
+
+function ejercicio5 (){
+
+}
+

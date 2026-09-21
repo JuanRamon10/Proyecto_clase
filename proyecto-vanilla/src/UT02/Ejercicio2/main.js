@@ -15,3 +15,5 @@ console.log(multiplosDeTres(10));
 
 console.log("Ejercicio 4");
 console.log(calcularPonencia(2,5));
+
+console.log("Ejercicio 5");
