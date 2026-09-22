@@ -23,7 +23,7 @@ export {calcularIMC, tieneIMCMayor, resultado1};
 
 //Ejercico 2
 
-function sumarMucho(){
+function sumar(){
     let total=0;
     let i;
     for( i=0;i < arguments.length ;i++){
@@ -38,8 +38,8 @@ function dividir(num1,num2){
 function sacarMedia(){
     let totalMedia=0;
     let i;
-    for(i = 0; arguments.length; i++ ){
-        totalMedia +=  arguments[i];
+    for(i = 0; i< arguments.length; i++ ){
+        totalMedia = sumar(totalMedia,arguments[i]);
     }
     
     return dividir(totalMedia , arguments.length);
