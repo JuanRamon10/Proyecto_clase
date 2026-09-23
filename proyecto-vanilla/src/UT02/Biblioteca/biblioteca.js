@@ -229,6 +229,21 @@ export{calcularPonencia};
 //Ejercicio 5
 
 function ejercicio5 (){
+    let i;
+    let total=0;
+    let media ;
+    for(i=0; i< arguments.length; i++){
+       if(typeof arguments[i] !== "number" || !Number.isInteger(arguments[i])){
+        return "Uno de los parametros no es de tipo numerico e integer";
+       }
+       if(arguments[i]< 1){
+
+        return `La posicion ${i}: no es un numero positivo`
+       }
+        total += arguments[i];
+    }
+     media = total/arguments.length;
+     return `La media es ${media}`;
 
 }
-
+export{ejercicio5};
