@@ -6,18 +6,19 @@ function calcularIMC(masa, altura){
    return IMC;
 }
 function tieneIMCMayor(IMC_juan,IMC_marcos){
+    let resultado = false
     if(IMC_marcos > IMC_juan){
-        return true;
+        resultado= true;
     }else{
-        return false;
+        resultado= false;
     }
+    return resultado
 };
 
 function resultado1(){
-    return `¿Tiene Marcos un IMC mayor que el de Juan?: ${resultadoBoolean}`;
+    return `${resultadoBoolean}`;
 }
 
-export {calcularIMC, tieneIMCMayor, resultado1};
 
 
 
@@ -32,12 +33,16 @@ function sumar(){
     return total;
 }
 function dividir(num1,num2){
-    return num1 / num2;
+    if(arguments.length === 2 && num2 !== 0){
+        return num1 / num2;
+    }else{
+        return "Debe haber dos parametros "
+    }
 }
  
 function sacarMedia(){
     let totalMedia=0;
-    let i;
+    let i = 0;
     for(i = 0; i< arguments.length; i++ ){
         totalMedia = sumar(totalMedia,arguments[i]);
     }
@@ -46,58 +51,55 @@ function sacarMedia(){
 
 }
 function compararParticipantes(intJuan, intMiguel, intMaria ){
+    let resultado= "";
     if(intJuan > intMiguel && intJuan > intMaria){
-            return "Juan tiene mayor media"
+            resultado = "Juan tiene mayor media"
     }else if(intMiguel > intMaria && intMiguel > intJuan){
-            return "Miguel tiene mayor media"
+            resultado = "Miguel tiene mayor media"
 
     }else if(intMaria > intJuan && intMaria > intMiguel ){
-            return "Maria tiene mayor media"
+            resultado = "Maria tiene mayor media"
 
     }else if(intJuan == intMiguel && intMaria == intMiguel){
-            return "Han quedado en empate los tres"
+            resultado = "Han quedado en empate los tres"
     }else if (intJuan == intMiguel && intMiguel > intMaria){
-        return "Hay empate entre Juan y Miguel"
+        resultado = "Hay empate entre Juan y Miguel"
     }else if (intMaria == intMiguel && intMiguel >intJuan ){
-        return "Hay empate entre Maria y Miguel"
+        resultado = "Hay empate entre Maria y Miguel"
     }else if (intJuan == intMaria && intJuan >intMiguel ){
-        return "Hay empate entre Maria y Juan"
+        resultado = "Hay empate entre Maria y Juan"
     }else{
-        return "No hay nada claro"
+        resultado = "No hay nada claro"
     }
+    return resultado;
 
 }
 
-export{sumar,dividir,sacarMedia,compararParticipantes};
 
 //Ejercicio 3
 
 function ejercicio3(numVeces, numero){
     let i;
     let numeroMultiplicado = numero ;
+    let resultado= "";
     for(i = 0; i< numVeces; i++){
-       console.log(`${numeroMultiplicado} `);
+       resultado +=`${numeroMultiplicado}, `;
        numeroMultiplicado = numeroMultiplicado * 2;
        
     }
-
+    return resultado
 }
-export{ejercicio3};
 
 //Ejercicio 4
  
 
 function ejercicio4 (nomProducto= "Producto generico", precio = 100 , porcentaje = 21 ){
-    if(isNaN(precio)){
-        return "Error el precio no es un numero";
-    }else if(isNaN(porcentaje)){
-        return "Error el porcentaje no es un numero";
+    if(isNaN(precio) || isNaN(porcentaje) ){
+        return "Error el precio/porcentaje no es un numero";
     }
-    return `El producto es ${nomProducto} y su precio final es ${(precio * porcentaje) /100}`;
-
+    return `El producto es ${nomProducto} y su precio final es ${precio + ( precio * porcentaje /100)}€`;
 
 }
-export{ejercicio4};
 
 
 //Carpeta 2 
@@ -105,50 +107,53 @@ export{ejercicio4};
 
 
 function sacarMes(numeroMes=1){
+        let resultado= "";
     if(typeof numeroMes === "number"){
-        let mes = Math.trunc(numeroMes);// transforma en entero sin aproximacion  Math.round la vieja confiable redondea
+        let mes = Math.trunc(numeroMes);// Math.trunc transforma en entero sin aproximacion  Math.round la vieja confiable redondea
         if(mes== 1){
-            return "Enero";
+            resultado= "Enero";
         }else if(mes== 2){
-            return "Febrero";
+            resultado = "Febrero";
         }else if(mes== 3){
-            return "Marzo";
+            resultado= "Marzo";
         }else if(mes== 4){
-            return "Abril";
+            resultado= "Abril";
         }else if(mes== 5){
-            return "Mayo";
+            resultado= "Mayo";
         }else if(mes== 6){
-            return "Junio";
+            resultado= "Junio";
         }else if(mes== 7){
-            return "Julio";
+            resultado= "Julio";
         }else if(mes== 8){
-            return "Agosto";
+            resultado= "Agosto";
         }else if(mes== 9){
-            return "Septiembre";
+            resultado= "Septiembre";
         }else if(mes== 10){
-            return "Octubre";
+            resultado= "Octubre";
         }else if(mes== 11){
-            return "Noviembre";
+            resultado= "Noviembre";
         }else if(mes== 12){
-            return "Diciembre";
+            resultado= "Diciembre";
         }else{
-            return "Eres tonto pon un numero del 1-12"
+            resultado= "Eres tonto pon un numero del 1-12"
         }
+        return resultado;
     }else{
         return "Introduce un numero atolondrado"
     }
 }
-export{sacarMes};
 
 
 // Ejercicio 2 
 
  function esPar(num){
+    let resultado;
     if(num % 2== 0){
-        return "Es par";
+        resultado= "Es par";
     }else{
-        return "Es impar";
+        resultado= "Es impar";
     } 
+    return resultado;
         
  }
     function tipoValor(num){
@@ -172,13 +177,12 @@ export{sacarMes};
 
     }
     function analisisNumerico(num){
-        console.log(`valor introducido, ${num}}`);
-        console.log(`Tipo de valor: ${tipoValor(num)} Es par : ${esPar(num)} Es primo :${esPrimo(num)} `);
+        return `valor introducido, ${num}} Tipo de valor: ${tipoValor(num)} 
+        Es par : ${esPar(num)} Es primo :${esPrimo(num)} `;
         
 
     }
 
-export{analisisNumerico,esPar,esPrimo,tipoValor};
 
 //Ejercicio 3 
 
@@ -193,7 +197,6 @@ function multiplosDeTres (num) {
     }
 }
  
-export{multiplosDeTres};
 
 
 //Ejercicio 4
@@ -213,7 +216,7 @@ function calcularPonencia(num1, num2){
             } 
             
         }
-        console.log(resultadoFinal);
+        return resultadoFinal;
 
 
 
@@ -223,7 +226,6 @@ function calcularPonencia(num1, num2){
 
 
 }
-export{calcularPonencia};
 
 
 //Ejercicio 5
@@ -243,7 +245,87 @@ function ejercicio5 (){
         total += arguments[i];
     }
      media = total/arguments.length;
-     return `La media es ${media}`;
+    return `La media es ${media}`;
 
 }
-export{ejercicio5};
+
+
+function calculadora(num1, num2, operador){
+    let resultado = 0;
+    
+    switch (operador){
+        case "+":
+            resultado= sumar(num1,num2);
+            break;
+        case "-":
+            resultado= resta(num1,num2);
+            break;
+        case "x": 
+            resultado= multiplicar(num1,num2);
+            break;
+        case "/":
+            resutado= dividir(num1/num2);
+            break;
+        case "%":
+            resultado= resto(num1,num2)
+            break;
+        default:
+            console.error("Error en el operador");
+            return;    
+    }
+
+    return `${num1} ${operador} ${num2} = ${resultado}`;  
+}
+
+function resto(num1, num2){
+    if(arguments.length === 2){
+        return num1% num2;
+    }else{
+        return "necesitas dos parametros"; 
+    }
+
+}
+
+
+function multiplicar(){
+    if(arguments.length !== 0){
+        let i= 0;
+        let multiplicado=0;
+        for(i=0; i< arguments.length; i++){
+            if(i === 0){
+                multiplicado=arguments[i];
+            }else{
+                multiplicado *= arguments[i];
+
+            }
+
+        }
+        return multiplicado;
+
+    }else{
+        return "No puedes multiplicar si no hay paramtros";
+    }
+
+
+}
+
+function resta(){
+    if(arguments.length !== 0){
+        
+    
+    let resta= arguments[0];
+    let i;
+    for( i=0;i < arguments.length ;i++){
+        if(i!==0){
+            resta -= arguments[i];
+        }
+        
+    }
+    return resta;
+    }else{
+        return "Necesitas 1-2 parametros para restar";
+    }
+}
+
+export{calcularIMC, tieneIMCMayor,sacarMedia,compararParticipantes,ejercicio3,ejercicio4,sacarMes,analisisNumerico,
+     multiplosDeTres,calcularPonencia,ejercicio5,calculadora};
