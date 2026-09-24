@@ -33,10 +33,10 @@ function sumar(){
     return total;
 }
 function dividir(num1,num2){
-    if(arguments.length === 2 && num2 !== 0){
+    if(arguments.length === 2 || num2 !== 0){
         return num1 / num2;
     }else{
-        return "Debe haber dos parametros "
+        return "Debe haber dos parametros y que el segundo numereo no sea 0"
     }
 }
  
@@ -264,7 +264,7 @@ function calculadora(num1, num2, operador){
             resultado= multiplicar(num1,num2);
             break;
         case "/":
-            resutado= dividir(num1/num2);
+            resultado= dividir(num1,num2);
             break;
         case "%":
             resultado= resto(num1,num2)

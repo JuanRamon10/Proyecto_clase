@@ -20,4 +20,4 @@ console.log("Ejercicio 5");
 console.log(ejercicio5(3,2,6,7,9));
 
 console.log("Ejercicio 6");
-console.log(calculadora(2,4,"x"))
+console.log(calculadora(2,4,"/"))
