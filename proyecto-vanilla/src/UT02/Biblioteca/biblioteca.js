@@ -87,7 +87,7 @@ function ejercicio3(numVeces, numero){
        numeroMultiplicado = numeroMultiplicado * 2;
        
     }
-    return resultado
+    return resultado;
 }
 
 //Ejercicio 4
@@ -110,29 +110,30 @@ function sacarMes(numeroMes=1){
         let resultado= "";
     if(typeof numeroMes === "number"){
         let mes = Math.trunc(numeroMes);// Math.trunc transforma en entero sin aproximacion  Math.round la vieja confiable redondea
+
         if(mes== 1){
             resultado= "Enero";
-        }else if(mes== 2){
+        }else if(mes=== 2){
             resultado = "Febrero";
-        }else if(mes== 3){
+        }else if(mes=== 3){
             resultado= "Marzo";
-        }else if(mes== 4){
+        }else if(mes=== 4){
             resultado= "Abril";
-        }else if(mes== 5){
+        }else if(mes=== 5){
             resultado= "Mayo";
-        }else if(mes== 6){
+        }else if(mes=== 6){
             resultado= "Junio";
-        }else if(mes== 7){
+        }else if(mes=== 7){
             resultado= "Julio";
-        }else if(mes== 8){
+        }else if(mes=== 8){
             resultado= "Agosto";
-        }else if(mes== 9){
+        }else if(mes=== 9){
             resultado= "Septiembre";
-        }else if(mes== 10){
+        }else if(mes=== 10){
             resultado= "Octubre";
-        }else if(mes== 11){
+        }else if(mes=== 11){
             resultado= "Noviembre";
-        }else if(mes== 12){
+        }else if(mes=== 12){
             resultado= "Diciembre";
         }else{
             resultado= "Eres tonto pon un numero del 1-12"
@@ -204,7 +205,7 @@ function multiplosDeTres (num) {
 function calcularPonencia(num1, num2){
     if(Number.isInteger(num1) && Number.isInteger(num2)){
         let contador= 1;
-        let potencia =Math.trunc(num1);
+        let potencia = Math.trunc(num1);
         let exponente = Math.trunc(num2);
         let resultadoFinal= potencia;
         while(contador !== exponente){
@@ -221,7 +222,7 @@ function calcularPonencia(num1, num2){
 
 
     }else{
-        return "Introduzca los numeros enteros por parametros "
+        return "Introduzca los numeros enteros por parametros ";
     }
 
 
@@ -267,7 +268,7 @@ function calculadora(num1, num2, operador){
             resultado= dividir(num1,num2);
             break;
         case "%":
-            resultado= resto(num1,num2)
+            resultado= resto(num1,num2);
             break;
         default:
             console.error("Error en el operador");
@@ -279,7 +280,7 @@ function calculadora(num1, num2, operador){
 
 function resto(num1, num2){
     if(arguments.length === 2){
-        return num1% num2;
+        return num1 % num2;
     }else{
         return "necesitas dos parametros"; 
     }
@@ -293,7 +294,7 @@ function multiplicar(){
         let multiplicado=0;
         for(i=0; i< arguments.length; i++){
             if(i === 0){
-                multiplicado=arguments[i];
+                multiplicado = arguments[i];
             }else{
                 multiplicado *= arguments[i];
 
