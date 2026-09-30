@@ -50,4 +50,15 @@ function compararEdades(num1,num2){
 
 };
 
-export{compararEdades};
+
+function pruebaArray(){
+    const arrayNuevo= [1,2,3,4,5,6,7,8,9,0];
+    let texto="";
+    let i;
+    for(i=0;i< arrayNuevo.length; i++){
+      texto += `${arrayNuevo[i]}, `;
+    }
+    return texto;
+}
+
+export{compararEdades,pruebaArray};
