@@ -86,6 +86,24 @@ const multiplicarSimple= (num1,num2)=>{
 }
     */
 
+//Ejercicio 3 
+
+const calcularPropina=(...numeros)=>{
+    let i =0;
+    for(i=0;i<numeros.length;i++){
+
+    }
+    if(numeros[i]<50){
+
+    }
+
+
+}
+
+
+
+
+
 
 
 export{sumandoParametros,tablas,multiplicarSimple};
