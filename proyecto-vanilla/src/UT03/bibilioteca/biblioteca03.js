@@ -88,22 +88,129 @@ const multiplicarSimple= (num1,num2)=>{
 
 //Ejercicio 3 
 
-const calcularPropina=(...numeros)=>{
-    let i =0;
-    for(i=0;i<numeros.length;i++){
+const calcularPropina=(numeros)=>{
+    if(comprobarNumerico(numeros)){
+        
+    
+        let arrayFactura= numeros;
+        let arrayPropina= [];
+        let arrayTotal= [];
+        let i =0;
 
-    }
-    if(numeros[i]<50){
+        for(i=0;i<numeros.length;i++){
 
-    }
+            if(numeros[i]< 50){
 
+                    arrayPropina[i]= numeros[i] * (20/100)
+                    arrayPropina[i]= arrayPropina[i].toFixed(2);
+
+            }else if(numeros[i] >= 50 && numeros[i] <= 200 ){
+                    arrayPropina[i]= numeros[i] * (15/100)
+                    arrayPropina[i]= arrayPropina[i].toFixed(2);
+            }else if(numeros[i] > 200){
+                    arrayPropina[i] = numeros[i] * (10/100)
+                    arrayPropina[i] = arrayPropina[i].toFixed(2);
+            }   
+
+
+        }
+        let c = 0 ;
+        for(c=0;c<numeros.length;c++){
+            arrayTotal[c]= numeros[c] + arrayPropina[c];
+        }
+        
+        console.log(`Facturas: ${arrayFactura} `)
+        console.log(`Propina: ${arrayPropina} `)
+        console.log(`Total (Factura + Propina):${arrayTotal} `)
+    }    
 
 }
 
 
+//Ejercicio 4 
+
+const arrayRandom = (num) =>{
+    let i = 0;
+    let arrayAlazar = [];
+    let numeroAlazar;
+    for(i=0;i < num; i++){
+        numeroAlazar = Math.floor((Math.random() * 100)+1);//Math.floor(Math.random() * 101) + 1  sin los if else
+        
+            arrayAlazar[i]=numeroAlazar;
+
+        
+
+    }
+    return arrayAlazar;
+} 
+
+const sumadoVectores= (array1, array2)=>{
+    let arrayVector = [];
+    let sumaVector = 0;
+    if(array1.length === array2.length){
+        let i = 0;
+        for(i=0;i<array1.length;i++){
+           sumaVector = array1[i] + array2[array2.length-1 -i]
+            arrayVector[i]= sumaVector;
+        }
+        return arrayVector;
 
 
+    }else{
+        return `ERROR:LOS ARRAYS NO COMPARTEN EL MISMO TAMAÑO`
+    }
+
+}
 
 
+const imprimirArray= (...array)=>{
+        for (let i =0 ; i< array.length; i++){
+            console.log(`Array ${i}: ${array[i]}`)
+        }
+        
 
-export{sumandoParametros,tablas,multiplicarSimple};
+}
+
+/*
+const imprimirArray= (...array)=>{
+        for (let i =0 ; i< array.length; i++){
+            switch(i){
+                 case 0:
+                    `Array Suma: ${array[i]} `
+                    break;
+                case 1:
+                    `Array 1 aleatorio: ${array[i]} `
+                    break;
+                case 2:
+                    `Array 2 aleatorio: ${array[i]} `
+                    break;
+                default:
+                    `Array ${i}: ${array[i]} `              
+                    break;
+
+        }
+        
+        }
+    
+
+}
+*/
+
+function calcular(arrayAlazar,sumado, imprimir){
+
+   let array1= arrayAlazar(2);
+   let array2= arrayAlazar(2)
+    
+
+    let suma = sumado(array1, array2)
+    
+    imprimir(suma, array1, array2)
+    console.log("Otra forma")
+    imprimir(`Suma: ${suma} \nArray 1: ${array1} \nArray 2 :${array2}`)
+
+    
+
+
+}
+
+export{sumandoParametros,tablas,multiplicarSimple,calcularPropina, calcular,sumadoVectores,arrayRandom,imprimirArray};
