@@ -233,7 +233,7 @@ const toCani = (cadena) => {
           
 
         }
-        switch(Math.floor(Math.random() * 2)){
+        switch(Math.floor(Math.random() * 2)){//  cadenaCani += Math.floor(Math.random() * 2) === 0 ? "HHH" : "HHHH" 
             case 0:
                 cadenaCani += "HHH"
                 break;
@@ -264,6 +264,16 @@ const validarString =(texto) => {
     return typeof texto === "string"
 }
 
+//Ejercicio 2
+//Temporizador
+
+
+const temporizador = (minutos,segundo) =>{
+
+
+
+
+}
 
 
 
