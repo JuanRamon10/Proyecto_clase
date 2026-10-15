@@ -213,4 +213,99 @@ function calcular(arrayAlazar,sumado, imprimir){
 
 }
 
-export{sumandoParametros,tablas,multiplicarSimple,calcularPropina, calcular,sumadoVectores,arrayRandom,imprimirArray};
+
+//Actividad 2
+//Ejercicio 1 
+
+const toCani = (cadena) => {
+    let cadenaCani = "";
+    
+    if(validarString(cadena)){
+        for(let i = 0; i< cadena.length; i++ ){
+            if(Math.floor(Math.random() *2) === 0){
+                                
+                cadenaCani += letraCani(cadena.charAt(i).toUpperCase())
+
+            }else{
+                cadenaCani += letraCani(cadena.charAt(i).toLowerCase())
+
+            }
+          
+
+        }
+        switch(Math.floor(Math.random() * 2)){
+            case 0:
+                cadenaCani += "HHH"
+                break;
+            case 1:
+                cadenaCani += "HHHHH"
+                break;
+            
+            default: 
+                break;
+
+        }
+
+        return cadenaCani;
+
+    }else{
+        return `No has introducido un String`;
+    }
+
+
+}
+
+const letraCani = (letra)=>{
+    return letra === "c" || letra === "C" ? "K" : letra;
+}
+
+
+const validarString =(texto) => {
+    return typeof texto === "string"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+//Actividad 3 
+//Ejercicio 1 - Mostrando (objetos)
+let curso = {
+    nombre: "DAW",
+    fecha: "14/10/2026",
+    curso: 2,
+    alumnos: 14,
+    profesores: 5,
+    direccion: {
+        calle: "Paco Ramon",
+        numero: 5,
+        telefono: 1234566789,
+    }
+
+
+};
+
+const mostrarObjeto=((objeto)=>{
+    
+    for(propiedad in objeto){
+        console.log(objeto);
+
+    }
+
+})
+
+
+
+
+
+
+//Actividad 4 
+
+export{sumandoParametros,tablas,multiplicarSimple,calcularPropina, calcular,sumadoVectores,arrayRandom,imprimirArray,mostrarObjeto, toCani};
