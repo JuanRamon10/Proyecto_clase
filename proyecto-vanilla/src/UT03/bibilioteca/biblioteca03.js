@@ -287,35 +287,77 @@ const temporizador = (minutos,segundo) =>{
 
 //Actividad 3 
 //Ejercicio 1 - Mostrando (objetos)
-let curso = {
-    nombre: "DAW",
-    fecha: "14/10/2026",
-    curso: 2,
-    alumnos: 14,
-    profesores: 5,
-    direccion: {
-        calle: "Paco Ramon",
-        numero: 5,
-        telefono: 1234566789,
-    }
 
 
-};
+const mostrarObjeto=((curso)=>{
+    console.log(`================================`)
+    console.log(`\tINFORME DEL CURSO`)
 
-const mostrarObjeto=((objeto)=>{
-    
-    for(propiedad in objeto){
-        console.log(objeto);
+    console.log(`================================`)
+
+    for(const propiedad in curso){
+        console.log(`${propiedad} : ${curso[propiedad]} `);
 
     }
 
-})
+    console.log(`================================`)
+    console.log(`\tFIN DEL INFORME DEL CURSO`)
 
+    console.log(`================================`)
 
+});
 
+//ejercicio 2
 
+const calacularMedia = (...numeros)=>{
+  let suma = 0;
+    if(comprobarNumerico(numeros)){
+
+  
+         suma = numeros.reduce((acumulador,valor, indice, array)=>{
+            return acumulador += valor;
+        })
+
+     return suma/numeros.length;
+    }else{
+        return `Hay un valor que no es un numero`
+    }
+}
+
+const imprimirAficiones = (...aficiones)=> {
+
+   return aficiones.map((v, i, array)=>{
+        console.log(`Sus aficiones son: ${v}`)
+    })
+
+}
+
+const imprimirInforme = (json)=>{
+    for (let clave in json){
+        if(typeof json[clave] !== "object" || Array.isArray(json[clave])){
+            console.log(`${clave} - ${json[clave]} `)
+            if(Array.isArray(json[clave])){
+                imprimirAficiones(json[clave]);
+            }
+
+        }
+ 
+        if(!Array.isArray(json[clave]) && typeof json[clave] === "object"){
+            console.log(`${clave}:`)
+        }
+        
+        if( !Array.isArray(json[clave]) && typeof json[clave] === "object"){
+           for(let propiedad in json[clave]){
+            console.log(`${propiedad} - ${json[clave][propiedad]}`)
+        }
+             
+                
+        }
+    }
+
+}
 
 
 //Actividad 4 
 
-export{sumandoParametros,tablas,multiplicarSimple,calcularPropina, calcular,sumadoVectores,arrayRandom,imprimirArray,mostrarObjeto, toCani};
+export{sumandoParametros,tablas,multiplicarSimple,calcularPropina, calcular,sumadoVectores,arrayRandom,imprimirArray, toCani, mostrarObjeto,calacularMedia,imprimirAficiones,imprimirInforme};
