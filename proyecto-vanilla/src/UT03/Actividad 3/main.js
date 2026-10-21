@@ -1,5 +1,5 @@
 "use strict"
-import{mostrarObjeto,imprimirInforme,imprimirAficiones,calacularMedia} from "../bibilioteca/biblioteca03.js"
+import{mostrarObjeto,mostradorObjetos2} from "../bibilioteca/biblioteca03.js"
 console.log(`Ejercicio 1:`);
  const curso = {
 
@@ -11,6 +11,9 @@ console.log(`Ejercicio 1:`);
 
     alumnos: [], // array vacío con los alumnos del curso.
 
+    matricular: function(discente){
+      this.alumnos = [...this.alumnos, discente]
+    }
   };
 mostrarObjeto(curso)
 
@@ -25,14 +28,15 @@ let distente ={
         segunda: 1,
         tercera: 8
       },
-      calcularMedia: () =>{
+      calcularMedia: function() {
         let suma= 0;
         let contador = 0;
-        for(let claves in propiedades){
-            suma += propiedades[claves]
+          
+        for(let claves in this.notas){
+            suma += this.notas[claves]
             contador++;
         }
-        return suma / contador  
+        return contador !== 0 ? suma / contador : `Error, no se puede dividir entre 0` 
 
       },
       imprimirAficiones: function(){
@@ -42,15 +46,52 @@ let distente ={
         })
       },
       imprimirInforme: function(){  
-        
+        for(let clave in this){
+
+          if(typeof this[clave] !== "object" && !Array.isArray(this[clave]) && typeof this[clave] !== "function"){
+            console.log(`${clave} - ${this[clave]}`)
+          }
+          if(typeof this[clave] === "object" && Array.isArray(this[clave])){
+              this.imprimirAficiones();
+          }
+
+          if(typeof this[clave] === "object" && !Array.isArray(this[clave]) && clave ==="notas"){
+            console.log(`${clave}: `)
+            for(let orden in this.notas){
+              console.log(`${orden} : ${this.notas[orden]}`)
+            }
+          }
+          if( clave === "calcularMedia"){
+            
+            console.log(`La media de la nota es : ${this.calcularMedia().toFixed(2)}`)
+            console.log(`Funcion ${clave}: Cumplido `)
+            }          
+
+          if(typeof this[clave] === "function" && clave === "imprimirAficiones"){
+            console.log(`Funcion ${clave}: Cumplido `)
+            
+            }
+          if(typeof this[clave] === "function" && clave === "imprimirInforme"){
+            console.log(`Funcion ${clave}: Cumplido `)
+            
+            } 
+            
+          }
+
+
+
+ 
       }
 
+    }
 
-};
 
-console.log(distente.nombre);
 console.log(`EJERCICIO 2`)
-console.log(distente.imprimirInforme());
+distente.imprimirInforme();
+
+
+console.log(`EJERCICIO 4`)
+mostradorObjetos2(distente);
 
 
 

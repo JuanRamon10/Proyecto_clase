@@ -308,7 +308,7 @@ const mostrarObjeto=((curso)=>{
 });
 
 //ejercicio 2
-
+/*
 const calacularMedia = (...numeros)=>{
   let suma = 0;
     if(comprobarNumerico(numeros)){
@@ -356,8 +356,54 @@ const imprimirInforme = (json)=>{
     }
 
 }
+*/
+//Ejercicio 4
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //Actividad 4 
 
-export{sumandoParametros,tablas,multiplicarSimple,calcularPropina, calcular,sumadoVectores,arrayRandom,imprimirArray, toCani, mostrarObjeto,calacularMedia,imprimirAficiones,imprimirInforme};
+function mostradorObjetos2(objeto){
+    for(let clave in objeto){
+        if( Array.isArray(objeto[clave])){
+            console.log(`${clave} - Esto es un array  - ${objeto[clave].map((v,i,array)=>{
+                return v;
+            })}`)
+        }
+        if(!Array.isArray(objeto[clave]) && typeof objeto[clave] === "function"  ){
+            console.log(`${clave} - Esto es una  función `)
+        }
+
+        if(typeof objeto[clave] === "string" ){
+            console.log(`${clave} - Esto es un string - ${objeto[clave]}`)
+        }
+        if(typeof objeto[clave] === "boolean"){
+            console.log(`${clave} - Esto es un booleano - ${objeto[clave]}`)
+        }        
+        if(typeof objeto[clave] === "number" ){
+            console.log(`${clave} - Esto es un numero - ${objeto[clave]}`)
+        }
+        if(typeof objeto[clave] === "object" && !Array.isArray(objeto[clave]) &&  objeto[clave] !== null ){
+            console.log(`${clave} - Esto es un objeto `)
+            for(let claveObjeto in objeto[clave] ){
+                console.log(`${claveObjeto} : ${objeto[clave][claveObjeto]} - ${typeof objeto[clave][claveObjeto]}`);
+            }
+
+        }
+    }
+
+}
+
+
+export{sumandoParametros,tablas,multiplicarSimple,calcularPropina, calcular,sumadoVectores,arrayRandom,imprimirArray, toCani, mostrarObjeto,mostradorObjetos2};
