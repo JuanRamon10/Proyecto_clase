@@ -2,7 +2,7 @@ import React from 'react'
 import Interprete from './Componentes/UT2/Practica203/Interprete.jsx';
 import Contenedor1 from './Componentes/UT2/Practica203/Contenedor1.jsx';
 import Pelicula from './Componentes/UT2/Practica203/Pelicula.jsx'
-
+import Peliculas from './Componentes/UT3/UT03_useState/Practica 307/Peliculas.jsx';
 function App() {
 
   return (
@@ -35,7 +35,7 @@ function App() {
                resumen="Todo comenzo...." elenco="Kirby y Ricardo Tapia y ejercicio 3 terminado" >
 
       </Pelicula>
-      
+      <Peliculas></Peliculas>
       
 
         
