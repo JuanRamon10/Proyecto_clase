@@ -8,7 +8,16 @@ const Peliculas = ({datos}) =>{
         <>
            <div>
              <p>{datos.Peliculas.map((v,i,array)=>{
-                    return <p>{i} - {v} </p>
+                  return {<p>{datos.id} - {v} </p>
+                     <p>{datos.Peliculas.nombre} - {v} </p>
+                     <p>{datos.director} - {v} </p>
+                     <p>{datos.clasificacion} - {v} </p>
+                     <p>{datos.recaudacion} - {v} </p>
+                     <p>{datos.cartelera} - {v} </p>
+                     <p>{datos.nota} - {v} </p>
+                     <p>{datos.actores} - {v} </p>
+
+             }
              })}</p>
 
 
