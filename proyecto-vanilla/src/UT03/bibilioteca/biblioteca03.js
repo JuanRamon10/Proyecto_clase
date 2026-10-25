@@ -222,7 +222,7 @@ const toCani = (cadena) => {
     
     if(validarString(cadena)){
         for(let i = 0; i< cadena.length; i++ ){
-            if(Math.floor(Math.random() *2) === 0){
+            if(i === 0 || i%2 === 0){
                                 
                 cadenaCani += letraCani(cadena.charAt(i).toUpperCase())
 
@@ -233,19 +233,29 @@ const toCani = (cadena) => {
           
 
         }
-        switch(Math.floor(Math.random() * 2)){//  cadenaCani += Math.floor(Math.random() * 2) === 0 ? "HHH" : "HHHH" 
-            case 0:
+        /* switch(Math.floor(Math.random() * 4) + 2){//  cadenaCani += Math.floor(Math.random() * 2) === 0 ? "HHH" : "HHHH" 
+            case 2: // *4 hace del 0 al 3 en real y con el floor redondeo para abajo
+                cadenaCani += "HH"
+                break;
+            case 3:
                 cadenaCani += "HHH"
                 break;
-            case 1:
+            case 4:
+                cadenaCani += "HHHH"
+                break;                
+            case 5:
                 cadenaCani += "HHHHH"
                 break;
-            
+
             default: 
                 break;
 
         }
-
+        */
+       const hAleatoria =Math.floor(Math.random() * 4) + 2
+       for(let j=0;j< hAleatoria ; j++){
+            cadenaCani += "H"
+       }
         return cadenaCani;
 
     }else{
@@ -256,7 +266,13 @@ const toCani = (cadena) => {
 }
 
 const letraCani = (letra)=>{
-    return letra === "c" || letra === "C" ? "K" : letra;
+    if( letra === "c"){
+        return "k"
+    }else if(letra === "C" ){
+         return "K"
+    }else{
+        return letra
+    }
 }
 
 
@@ -268,19 +284,161 @@ const validarString =(texto) => {
 //Temporizador
 
 
-const temporizador = (minutos,segundo) =>{
+const temporizador = (minutos,segundos) =>{
+    try{
+        if(segundos === undefined ){
+            if(typeof minutos === "number" && !Number.isNaN(minutos)){
+                segundos = minutos
+                minutos = 0
+             if(segundos >= 60 ){
+                minutos = Math.floor(segundos /60)
+                segundos = segundos % 60 
+             }
+            }else{
+                throw new Error(`El unico parametro introducido no es un numero`)
+            }
+
+        }
+        if(segundos > 59 ){
+            throw new Error(`Error, tonto pon del 0 - 59`);
+        }
+        if(segundos<0 || minutos<0){
+            throw new Error(`Los numeros son negativos, tonto`)
+
+        }
+
+    if(minutos >= 0 && segundos >= 0 && !Number.isNaN(minutos) && !Number.isNaN(segundos) && typeof minutos === "number" && typeof segundos === "number"){    
+    const tiempo=  setInterval(()=>{
+        console.log(`${minutos} : ${segundos} `);  
+        segundos--    
+        if(segundos < 0){
+                minutos--
+                segundos= 59
+            }
+            if(segundos === 0 && minutos === 0){
+                console.log(`${minutos} : ${segundos} `);   
+
+                clearInterval(tiempo);
+                return
+            }
+          
+        
+              
+
+        }    
+
+        ,1000)
+    }else{
+        throw new Error(`Los numeros parametros erroneo, idiota`)
+    }
+}catch(e){
+    console.error(e.message)
+}
+}
+//EJERCICIO 3 
 
 
+const solicitarDNI=()=>{
+    let dni = "";
+    let arrayDni= [];
+     const temporizador=setInterval(()=>{
+
+        dni =prompt("Introduzca la numeracion de su DNI - en caso de cancelar escriba -1");
+        if(dni==="-1"|| dni === null){
+            clearInterval(temporizador);
+            console.log(`Los DNIs introducidos son: ${arrayDni}`)
+            return;
+        }else if(validarDni(dni)){
+            dni +=letraDni(dni);
+            arrayDni=[...arrayDni,dni]
+        }else{
+            console.log("Error numero no valido")
+
+        }
+    },5000) 
+
+    }
+
+
+
+const letraDni=(dni)=>{
+    const arrayLetras =["T","R","W","A","G","M","Y","F","P","D","X","B","N","J","Z","S","Q","V","H","L","C","K","E"]
+    const letraDni = dni % 23
+    return arrayLetras[letraDni];
+
+}
+const validarDni = (dni) =>{
+    return /^\d{8}$/.test(dni);
+}
+
+//Ejercicio 4 
+
+
+const fechaActual=()=>{
+    const fecha = new Date().toLocaleDateString("es-ES"); // .toLocaleDateString("es-ES") le da formato al castellano
+    console.log(fecha);
+}
+
+//Ejercicio 5
+const masDNI=(letraBuscada)=>{
+    let contador = 0; 
+    let dnisEncotrados= ""
+    let numero = 48357001
+    let dni= 0;
+    for(numero; numero <= 48360000; numero++){
+        dni=numero;
+        if(letraDni(numero)===letraBuscada.toUpperCase()){
+            dni += letraDni(numero)
+            dnisEncotrados += `${dni}, `
+            contador++;
+        }
+    } 
+           console.log(`Se han encontrado ${contador} DNIs\n son los siguientes: ${dnisEncotrados} `) 
+
+ }
+
+//Ejercicio 6
+
+const esPolindromo = (n)=>{
+  const cadena = n.toString();
+  let inicio = 0
+  let final= cadena.length-1
+   while (inicio< final){
+    if(cadena.charAt(inicio)!==cadena.charAt(final)){
+        return false;
+    }
+    inicio++
+    final--
+   } 
+
+   return true;
+}
+ function esPrimo(num){
+    if(num <= 1){
+        return false;
+    }
+    let i;
+    for(i=2;i <= Math.sqrt(num) ;i++){//Math.sqrt raiz cuadrada
+        if(num % i === 0){
+            return false;// se encuetra un divisor por ende no es primo
+        }
+    }
+    return true;    
+
+}
+const primoPolindromo = ()=>{
+    let array=[]
+    let i = 0
+    while(i<=100000){
+        if(esPolindromo(i) && esPrimo(i)){
+            array=[...array,i]
+        }
+        i++
+    }
+    return array;
 
 
 }
-
-
-
-
-
-
-
 
 
 
@@ -360,20 +518,6 @@ const imprimirInforme = (json)=>{
 //Ejercicio 4
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-//Actividad 4 
-
 function mostradorObjetos2(objeto){
     for(let clave in objeto){
         if( Array.isArray(objeto[clave])){
@@ -405,5 +549,127 @@ function mostradorObjetos2(objeto){
 
 }
 
+//Actividad 4
 
-export{sumandoParametros,tablas,multiplicarSimple,calcularPropina, calcular,sumadoVectores,arrayRandom,imprimirArray, toCani, mostrarObjeto,mostradorObjetos2};
+//Ejercicio 1 
+
+///ESTA EN EL MAIN
+
+
+//Ejercicio 2 
+
+const generarNumerosAleatoriosArray=()=>{
+    let array =[]
+    for(let i=0; i< 10;i++){
+    array = [...array,Math.floor(Math.random()*10)+1]
+
+    }
+    return array;
+}
+
+//Ejercicio 3 
+
+const añadirUsuario=(arrayAntiguo,usuario)=>{
+    if(typeof usuario === "object" && usuario !== null){
+       let array = [...arrayAntiguo,usuario]; 
+       return array;
+
+    }else{
+        return "No es un objeto"
+    }
+
+}
+const mayorEdad =(usuarios)=>{
+
+if(Array.isArray(usuarios)){
+        return usuarios.filter((a)=> { return a.preferencias.edad>=18 })
+
+    }else{
+        return "No es un array"
+    }
+
+}
+
+const correoYahoo =(usuarios)=>{
+
+if(Array.isArray(usuarios)){
+        return usuarios.filter((a)=> { return a.contacto.correoelectronico.includes("yahoo")  })
+
+    }else{
+        return "No es un array"
+    }
+
+}
+
+const sinDatos =(usuarios)=>{
+
+if(Array.isArray(usuarios)){
+        return usuarios.filter((a)=> {  
+            return a.contacto.telefono === "" ||
+                a.nombre === "" ||
+                a.preferencias.tema === "" ||
+                a.preferencias.idioma === "" ||
+                a.preferencias.edad === null ||
+                a.contacto.direccion.calle === "" ||
+                a.contacto.direccion.localidad === "" ||
+                a.contacto.direccion.pais === "" ||
+                a.contacto.correoelectronico === "" 
+
+            
+            })
+              
+        }else{
+        return "No es un array"
+    }
+
+}
+const condiciones3 =(usuarios)=>{
+
+if(Array.isArray(usuarios)){
+        return usuarios.filter((a)=> {  
+            return a.preferencias.tema === "claro"
+                 && a.preferencias.edad >= 18
+                && a.contacto.direccion.pais ==="EspaÃ±a"
+                
+            })
+              
+        }else{
+        return "No es un array"
+    }
+
+}
+
+const añadirApellidos =(usuarios)=>{
+
+if(Array.isArray(usuarios)){
+        return usuarios.map((v,i,array)=>{
+       
+            return {...v, apellidos:"No indicado"}
+             
+        })
+              
+        }else{
+        return "No es un array"
+    }
+
+}
+
+const añadirCodigo =(usuarios)=>{
+
+if(Array.isArray(usuarios)){
+        return usuarios.map((v,i,array)=>{
+       
+            return {...v,
+                contacto:{...v.contacto,
+                 direccion:{...v.contacto.direccion,codigo: "00000"}}}
+                  
+             
+        })
+              
+        }else{
+        return "No es un array"
+    }
+
+}
+
+export{mayorEdad,añadirUsuario,correoYahoo,sinDatos,condiciones3,añadirApellidos,añadirCodigo,generarNumerosAleatoriosArray,primoPolindromo,temporizador,sumandoParametros,tablas,multiplicarSimple,calcularPropina, calcular,sumadoVectores,arrayRandom,imprimirArray, toCani, mostrarObjeto,mostradorObjetos2,fechaActual,solicitarDNI,validarDni,masDNI};
