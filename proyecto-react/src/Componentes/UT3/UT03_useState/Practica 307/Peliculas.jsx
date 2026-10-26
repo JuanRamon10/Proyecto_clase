@@ -1,7 +1,7 @@
 import { useState } from "react";
 import {datos} from "./peliculas.json"
 
-
+/*
 const Peliculas = ({datos}) =>{
 
     return(
@@ -31,4 +31,5 @@ const Peliculas = ({datos}) =>{
 
 
 }
+    /**/
 export default Peliculas;
