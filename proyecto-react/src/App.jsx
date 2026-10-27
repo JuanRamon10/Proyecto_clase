@@ -1,9 +1,11 @@
 import React from 'react'
 import Interprete from './Componentes/UT2/Practica203/Interprete.jsx';
 import Contenedor1 from './Componentes/UT2/Practica203/Contenedor1.jsx';
-import Pelicula from './Componentes/UT2/Practica203/Pelicula.jsx'
 import ContadorLikes from './Componentes/UT3/UT03_useState/Practica 308/ContadorLikes.jsx';
-
+import ListadoPelicula from './Componentes/UT3/UT03_useState/Practica 307/ListadoPeliculas.jsx';
+import {peliculas} from "./Componentes/UT3/UT03_useState/Practica 307/peliculas.json"
+import Listado from './Componentes/UT3/UT03_useState/Practica 308/Listado.jsx';
+import ContadorLimite from './Componentes/UT3/UT03_useState/Practica 308/ContadorLimite.jsx';
 function App() {
 
   return (
@@ -29,7 +31,7 @@ function App() {
                 </section>
 
         </Contenedor1>*/}
-
+        <ListadoPelicula valor={peliculas} />
 
         <div className="">
           <ContadorLikes></ContadorLikes>
@@ -39,7 +41,9 @@ function App() {
         </div>
       </section>
 
+        <Listado/>
 
+        <ContadorLimite/>
     </>
   );
 }

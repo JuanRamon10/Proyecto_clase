@@ -1,21 +1,26 @@
 
+import Actor from "./Actor";
+import {peliculas} from "./peliculas.json"
+import ListadoActores from "./ListadoActores";
+import "./Pelicula.css";
 
-import {datos} from "./peliculas.json"
 
-const Pelicula = (datos) =>{
+const Pelicula = ({valor}) =>{
 
     return(
         <>
-           <div>                
-                     <p>{datos.Peliculas.nombre} - {v} </p>
-                     <p>{datos.director} - {v} </p>
-                     <p>{datos.clasificacion} - {v} </p>
-                     <p>{datos.recaudacion} - {v} </p>
-                     <p>{datos.cartelera} - {v} </p>
-                     <p>{datos.nota} - {v} </p>
-                     <p>{datos.actores} - {v} </p>
-
-
+           <div className="tablas">                
+                     <p>Id: {valor.id} </p>
+                     <p>Nombre: {valor.nombre} </p>
+                     <p>Director: {valor.director}</p>
+                     <p>Clasificacción: {valor.clasificacion} </p>
+                     <p>Recaudación: {valor.recaudacion}</p>
+                     <p>Cartelera: <img src={valor.cartelera}></img></p>
+                     <p>Nota: {valor.nota}</p>
+                     <p>Resumen: {valor.resumen}</p>
+                     <div>
+                     <ListadoActores key={valor.id} datosArray={valor.actores}/>
+                    </div>
            </div>
 
 
@@ -26,4 +31,4 @@ const Pelicula = (datos) =>{
 
 
 }
-export default Peliculas;
+export default Pelicula;
