@@ -6,6 +6,7 @@ import ListadoPelicula from './Componentes/UT3/UT03_useState/Practica 307/Listad
 import {peliculas} from "./Componentes/UT3/UT03_useState/Practica 307/peliculas.json"
 import Listado from './Componentes/UT3/UT03_useState/Practica 308/Listado.jsx';
 import ContadorLimite from './Componentes/UT3/UT03_useState/Practica 308/ContadorLimite.jsx';
+import ListaMatriculas from './Componentes/UT3/UT03_useState/Practica 309/ListaMatriculas.jsx';
 function App() {
 
   return (
@@ -44,6 +45,9 @@ function App() {
         <Listado/>
 
         <ContadorLimite/>
+
+
+        <ListaMatriculas />
     </>
   );
 }
