@@ -134,4 +134,27 @@ function insertAfter(nuevoElemento, existenteElemento){
     
 }
 
+
+//Actividad 2 
+
+
+//Ejercicio 1-2-3-4
+function cesurarTexto(){
+ const hijosDeBody =document.body.children
+   const arrayHijos = Array.from(hijosDeBody)
+    let textoRemplazado =""
+    let arrayNuevo = []
+   for (let i = 0 ; i< arrayHijos.length; i++){
+        if(arrayHijos[i].textContent.includes("sexo")){
+            // arrayHijos[i].textContent.replace("sexo","Contenido Bloqueado")
+            document.createTextNode( arrayHijos[i].textContent.replace("sexo",`<span class=".LetrRoja">Contenido Bloqueado<span>`))
+            textoRemplazado = arrayHijos[i].textContent.replace("sexo","Contenido Bloqueado")
+            arrayNuevo = [...arrayNuevo,textoRemplazado];
+        } 
+   }
+  
+   
+}
+
+
 export{ejercicio1,ejercicio2,fraseContinuaQujote,insertAfter};
