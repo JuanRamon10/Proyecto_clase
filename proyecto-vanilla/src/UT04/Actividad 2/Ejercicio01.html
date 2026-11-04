@@ -51,12 +51,24 @@
       familiares.
     </p>
   </body>
-  <script>
+  <script >
+    
  const hijosDeBody =document.body.children
-   const arrayHijos = Array.from(hijosDeBody)
-           if(arrayHijos[0].textContent.includes("sexo")){
-           console.log(arrayHijos[0].textContent.indexOf("sexo"))
-        }
-        console.log(arrayHijos[0].textContent.indexOf("sexo"))
+   console.log(hijosDeBody[0].textContent.replace("sexo","Hola mundo")  )
+ console.log(hijosDeBody)
+ const prueba = document.getElementsByTagName("body")
+ console.log(hijosDeBody[0].textContent.indexOf("sexo")  )
+  console.log(hijosDeBody[0].textContent.replace("sexo","Hola mundo") )
+  hijosDeBody[0].textContent.replace("sexo",`<span class=".LetrRoja">Contenido Bloqueado<span>`)
+    hijosDeBody[0].innerHTML = hijosDeBody[0].textContent.replace("sexo",`<span class=".LetrRoja">Contenido Bloqueado<span>`)
+    arrayPrueba = Array.from(hijosDeBody[0].children)
+   // console.log(arrayPrueba)
+    console.log( hijosDeBody[0])
+ //console.log(document.getElementsByTagName("body"))
+ const añadir = document.getElementsByTagName("body")
+
+
+
+
   </script>
 </html>

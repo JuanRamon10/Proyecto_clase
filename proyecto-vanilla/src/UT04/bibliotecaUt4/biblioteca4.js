@@ -146,7 +146,7 @@ function cesurarTexto(){
     let arrayNuevo = []
    for (let i = 0 ; i< arrayHijos.length; i++){
         if(arrayHijos[i].textContent.includes("sexo")){
-            // arrayHijos[i].textContent.replace("sexo","Contenido Bloqueado")
+            document.inner
             document.createTextNode( arrayHijos[i].textContent.replace("sexo",`<span class=".LetrRoja">Contenido Bloqueado<span>`))
             textoRemplazado = arrayHijos[i].textContent.replace("sexo","Contenido Bloqueado")
             arrayNuevo = [...arrayNuevo,textoRemplazado];
@@ -157,4 +157,4 @@ function cesurarTexto(){
 }
 
 
-export{ejercicio1,ejercicio2,fraseContinuaQujote,insertAfter};
+export{ejercicio1,ejercicio2,fraseContinuaQujote,insertAfter,cesurarTexto};
