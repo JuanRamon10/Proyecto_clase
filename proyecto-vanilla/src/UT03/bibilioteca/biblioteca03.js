@@ -672,4 +672,4 @@ if(Array.isArray(usuarios)){
 
 }
 
-export{mayorEdad,añadirUsuario,correoYahoo,sinDatos,condiciones3,añadirApellidos,añadirCodigo,generarNumerosAleatoriosArray,primoPolindromo,temporizador,sumandoParametros,tablas,multiplicarSimple,calcularPropina, calcular,sumadoVectores,arrayRandom,imprimirArray, toCani, mostrarObjeto,mostradorObjetos2,fechaActual,solicitarDNI,validarDni,masDNI};
+export{mayorEdad,añadirUsuario,correoYahoo,sinDatos,condiciones3,añadirApellidos,añadirCodigo,generarNumerosAleatoriosArray,primoPolindromo,temporizador,sumandoParametros,tablas,multiplicarSimple,calcularPropina, calcular,sumadoVectores,arrayRandom,imprimirArray, toCani, mostrarObjeto,mostradorObjetos2,fechaActual,solicitarDNI,validarDni,masDNI,esPrimo};

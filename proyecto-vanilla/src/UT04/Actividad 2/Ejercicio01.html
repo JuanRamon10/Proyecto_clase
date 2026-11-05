@@ -4,6 +4,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .LetraRoja{
+       color: red;
+       font-weight: bold;
+       font-style: italic;
+     }
+     #tabla{
+      border: 2px black solid;
+     }
+
+    </style>
     <title>Ejercicio01.html</title>
   </head>
   <body>
@@ -51,24 +62,6 @@
       familiares.
     </p>
   </body>
-  <script >
-    
- const hijosDeBody =document.body.children
-   console.log(hijosDeBody[0].textContent.replace("sexo","Hola mundo")  )
- console.log(hijosDeBody)
- const prueba = document.getElementsByTagName("body")
- console.log(hijosDeBody[0].textContent.indexOf("sexo")  )
-  console.log(hijosDeBody[0].textContent.replace("sexo","Hola mundo") )
-  hijosDeBody[0].textContent.replace("sexo",`<span class=".LetrRoja">Contenido Bloqueado<span>`)
-    hijosDeBody[0].innerHTML = hijosDeBody[0].textContent.replace("sexo",`<span class=".LetrRoja">Contenido Bloqueado<span>`)
-    arrayPrueba = Array.from(hijosDeBody[0].children)
-   // console.log(arrayPrueba)
-    console.log( hijosDeBody[0])
- //console.log(document.getElementsByTagName("body"))
- const añadir = document.getElementsByTagName("body")
-
-
-
-
+  <script src="./main.js" type="module">
   </script>
 </html>

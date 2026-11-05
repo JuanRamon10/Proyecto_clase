@@ -1,3 +1,4 @@
+import{esPrimo}from "../../UT03/bibilioteca/biblioteca03.js"
 "use strict"
 import {quijoteFrases} from "../Actividad 1/quijoteFrases.js"
 import{toCani}from "../../UT03/bibilioteca/biblioteca03.js"
@@ -140,21 +141,40 @@ function insertAfter(nuevoElemento, existenteElemento){
 
 //Ejercicio 1-2-3-4
 function cesurarTexto(){
- const hijosDeBody =document.body.children
-   const arrayHijos = Array.from(hijosDeBody)
-    let textoRemplazado =""
-    let arrayNuevo = []
-   for (let i = 0 ; i< arrayHijos.length; i++){
-        if(arrayHijos[i].textContent.includes("sexo")){
-            document.inner
-            document.createTextNode( arrayHijos[i].textContent.replace("sexo",`<span class=".LetrRoja">Contenido Bloqueado<span>`))
-            textoRemplazado = arrayHijos[i].textContent.replace("sexo","Contenido Bloqueado")
-            arrayNuevo = [...arrayNuevo,textoRemplazado];
-        } 
+   const hijosDeBody =document.body.children
+   for(let i = 0; i< hijosDeBody.length;i++){
+       hijosDeBody[i].innerHTML= hijosDeBody[i].textContent.replace("sexo",`<span class="LetraRoja">Contenido Bloqueado</span>`)
    }
-  
-   
+
+
 }
 
 
-export{ejercicio1,ejercicio2,fraseContinuaQujote,insertAfter,cesurarTexto};
+const tablaPrimo = ()=>{
+   const elementoBody = document.getElementsByTagName("body")
+    console.log(elementoBody[0])
+    elementoBody[0].insertAdjacentHTML("beforeend",`<table id="tabla"></table>`)
+  const tablaSeleccionada = document.getElementById("tabla");  
+  let contador=1
+    for(let i = 1; i< 11; i++ ){
+       const trInsert= tablaSeleccionada.insertAdjacentHTML("beforeend",`<tr id=${i}></tr>`)
+        for(let j= 1; j<11 ; j++){
+           const elementoId= document.getElementById(i)
+           if(esPrimo(contador)){
+            elementoId.insertAdjacentHTML("beforeend",` <span id="colorAzul">${contador}<span> `)
+           }else{
+            elementoId.insertAdjacentHTML("beforeend",` <span id="colorRojo">${contador}<span> `)
+
+           }
+            
+            contador++;
+            console.log(contador)
+        }
+    }
+
+
+}
+
+
+
+export{ejercicio1,ejercicio2,fraseContinuaQujote,insertAfter,cesurarTexto,tablaPrimo};
