@@ -172,11 +172,6 @@ const tablaPrimo = ()=>{
 }
 
 
-
-
-
-
-
 const tablaPrima =()=>{
    const idSet = setTimeout(()=>{
     const span = document.getElementsByTagName("span")
