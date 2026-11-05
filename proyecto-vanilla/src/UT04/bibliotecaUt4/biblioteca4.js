@@ -153,28 +153,45 @@ function cesurarTexto(){
 const tablaPrimo = ()=>{
    const elementoBody = document.getElementsByTagName("body")
     console.log(elementoBody[0])
-    elementoBody[0].insertAdjacentHTML("beforeend",`<table id="tabla"></table>`)
+    elementoBody[0].insertAdjacentHTML("beforeend",`<table id="tabla"border="1"></table>`)
   const tablaSeleccionada = document.getElementById("tabla");  
   let contador=1
     for(let i = 1; i< 11; i++ ){
        const trInsert= tablaSeleccionada.insertAdjacentHTML("beforeend",`<tr id=${i}></tr>`)
         for(let j= 1; j<11 ; j++){
            const elementoId= document.getElementById(i)
-           if(esPrimo(contador)){
-            elementoId.insertAdjacentHTML("beforeend",` <span id="colorAzul">${contador}<span> `)
-           }else{
-            elementoId.insertAdjacentHTML("beforeend",` <span id="colorRojo">${contador}<span> `)
+            elementoId.insertAdjacentHTML("beforeend",` <span>${contador}<span> `)
 
-           }
-            
             contador++;
             console.log(contador)
         }
     }
-
+    
+    tablaPrima()
 
 }
 
 
+
+
+
+
+
+const tablaPrima =()=>{
+   const idSet = setTimeout(()=>{
+    const span = document.getElementsByTagName("span")
+    for(let i = 0; i<span.length;i++){
+        if(esPrimo(span[i].textContent)){
+            span[i].setAttribute("class","colorAzul")
+        }else{
+            span[i].setAttribute("class","colorRojo")    
+        }
+    } 
+    
+
+   },2000)
+
+
+}
 
 export{ejercicio1,ejercicio2,fraseContinuaQujote,insertAfter,cesurarTexto,tablaPrimo};

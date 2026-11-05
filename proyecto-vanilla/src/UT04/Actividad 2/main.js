@@ -7,4 +7,6 @@ setTimeout(()=>{
 },2000)
 */
 
-tablaPrimo()
+
+  tablaPrimo()
+
