@@ -188,5 +188,22 @@ const tablaPrima =()=>{
 
 
 }
+const estiloAletaroio =()=>{
+   setInterval(()=>{
+        const arrayLista = ["rojo","azul","verde","amarillo","negro"]
+        let todosP =document.getElementsByTagName("p")
+        const parrafoAleatorio = Math.floor(Math.random()*5)
+        const numAleatorio= Math.floor(Math.random()*5)
+        todosP[parrafoAleatorio].setAttribute("class",arrayLista[numAleatorio])
+    
+   },1000)
 
-export{ejercicio1,ejercicio2,fraseContinuaQujote,insertAfter,cesurarTexto,tablaPrimo};
+}
+
+const imagenesAleatorias = () =>{
+    const  arrayImagenes =["img/Evo.jpg"]
+
+
+}
+
+export{ejercicio1,ejercicio2,fraseContinuaQujote,insertAfter,cesurarTexto,tablaPrimo,estiloAletaroio};

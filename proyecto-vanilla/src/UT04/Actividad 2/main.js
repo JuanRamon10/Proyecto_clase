@@ -1,5 +1,5 @@
 "use strict";
-import{cesurarTexto,tablaPrimo}from "../bibliotecaUt4/biblioteca4.js";
+import{cesurarTexto,tablaPrimo,estiloAletaroio}from "../bibliotecaUt4/biblioteca4.js";
 /*
 setTimeout(()=>{
   cesurarTexto();
@@ -8,5 +8,6 @@ setTimeout(()=>{
 */
 
 
-  tablaPrimo()
+  //tablaPrimo();
 
+estiloAletaroio()
