@@ -1,5 +1,5 @@
 "use strict";
-import{cesurarTexto,tablaPrimo,estiloAletaroio}from "../bibliotecaUt4/biblioteca4.js";
+import{cesurarTexto,tablaPrimo,estiloAletaroio,imagenesAleatorias}from "../bibliotecaUt4/biblioteca4.js";
 /*
 setTimeout(()=>{
   cesurarTexto();
@@ -10,4 +10,5 @@ setTimeout(()=>{
 
   //tablaPrimo();
 
-estiloAletaroio()
+//estiloAletaroio()
+imagenesAleatorias()

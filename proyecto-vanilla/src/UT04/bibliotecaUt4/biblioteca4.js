@@ -201,9 +201,189 @@ const estiloAletaroio =()=>{
 }
 
 const imagenesAleatorias = () =>{
-    const  arrayImagenes =["img/Evo.jpg"]
+    const  arrayImagenes =["img/TrumpMeme.jpg","img/MemeJr.jpeg", "img/meme1.jpeg","img/Maduro.jpeg"]
+   const divCreado= document.createElement("div")
+   const imgCreado= document.createElement("img")
+    imgCreado.style.opacity=`0`
+   imgCreado.setAttribute("src",arrayImagenes[0])
+    divCreado.appendChild(imgCreado)
+    document.body.appendChild(divCreado)
+    divCreado.style.position="relative"
+    let contador= 0
+    let opacidad =0.0
+    let movimiento=2
+    setInterval(()=>{
+        if(contador > arrayImagenes.length-1){
+            contador=0
+        }
+  
+        imgCreado.style.opacity=`0`
+        imgCreado.src= arrayImagenes[contador]
+ 
+        
+
+   
+ 
+        let opacidadProgresiva=setInterval(()=>{
+            
+      
+            if(opacidad<1.1){
+                imgCreado.style.opacity=`${opacidad}`
+                opacidad=opacidad+ 0.1
+            }else{
+                opacidad =0.0
+                clearInterval(opacidadProgresiva)
+            }
+        },50)
+
+        divCreado.style.left=`${movimiento}px`
+       
+        movimiento++
+        contador++
+    },2000)
+}
+///Actividad 3 
+document.querySelectorAll(".tarea").forEach(v=>v.remove())
+document.querySelectorAll(".acabada").forEach(v=>v.remove())
+
+const anadirTextoPendiente=()=>{
+
+    const texto = document.getElementsByTagName("textarea")[0].value
+        if(texto===""){
+            alert("Eres tonto,pon algo")
+            return
+        }
+      const sacoPadre =document.getElementById("pendientes").getElementsByTagName("h1")[0]
+
+     let divCreado= document.createElement("div")
+        divCreado.setAttribute("class","tarea")
+
+       const primerParr= document.createElement("p")
+       const segundoParr= document.createElement("p")
+ 
+       primerParr.textContent = texto
+ 
+       const input1=  document.createElement("input")
+        const input2=  document.createElement("input")
+ 
+        input1.type="button"
+        input1.value ="Borrar"
+        input1.setAttribute("class","del")
+             
+        input2.type="button"
+        input2.value ="Acabar"
+        input2.setAttribute("class","end")
+        segundoParr.className="botones"
+        segundoParr.appendChild(input1)
+        segundoParr.appendChild(input2)
+
+        divCreado.appendChild(primerParr)
+        divCreado.appendChild(segundoParr)
+
+      sacoPadre.insertAdjacentElement("afterend",divCreado)
+
+      input1.onclick= ()=>divCreado.remove()
+      input2.onclick= ()=> acabarTarea(divCreado)
+      document.getElementsByTagName("textarea")[0].value = "";
+
+}
+const botonAnnadir = document.querySelector(".add")//aqui el punto para especificar que es una clase
+botonAnnadir.onclick = anadirTextoPendiente 
+
+
+    
+const revertir= (TareaAcabada)=>{
+ //Extraer texto 
+
+ const texto = TareaAcabada.getElementsByTagName("p")[0].textContent
+
+
+ const sacoPadre =document.getElementById("pendientes").getElementsByTagName("h1")[0]
+
+     let divCreado= document.createElement("div")
+        divCreado.setAttribute("class","tarea")
+    
+       const primerParr= document.createElement("p")
+       const segundoParr= document.createElement("p")
+ 
+       primerParr.textContent = texto
+        segundoParr.className="botones"
+
+       const input1=  document.createElement("input")
+        const input2=  document.createElement("input")
+ 
+        input1.type="button"
+        input1.value ="Borrar"
+        input1.setAttribute("class","del")
+             
+        input2.type="button"
+        input2.value ="Acabar"
+        input2.setAttribute("class","end")
+
+        segundoParr.appendChild(input1)
+        segundoParr.appendChild(input2)
+
+        divCreado.appendChild(primerParr)
+        divCreado.appendChild(segundoParr)
+
+      sacoPadre.insertAdjacentElement("afterend",divCreado)
+
+      input1.onclick= ()=>divCreado.remove()
+      input2.onclick= ()=> acabarTarea(divCreado)
+
+
+
+
+
+ TareaAcabada.remove()
 
 
 }
 
-export{ejercicio1,ejercicio2,fraseContinuaQujote,insertAfter,cesurarTexto,tablaPrimo,estiloAletaroio};
+
+
+const acabarTarea= (divTarea)=>{
+ //Extraer texto 
+ const divAcabadas = document.getElementById("acabadas")
+ 
+    const creoDiv = document.createElement("div") 
+    creoDiv.setAttribute("class", "acabada")
+    const primerParrA = document.createElement("p")
+    primerParrA.textContent = divTarea.getElementsByTagName("p")[0].textContent
+
+    const segunParrA = document.createElement("p")
+    segunParrA.className="botones"
+
+   const input1Act= document.createElement("input")
+   const input2Act= document.createElement("input")
+
+   input1Act.type= "button"
+   input1Act.value= "Archivar"
+   input1Act.className = "del" // estoy añadiendo una clase 
+
+   input2Act.type= "button"
+   input2Act.value= "Volver"
+   input2Act.className = "end"
+
+segunParrA.appendChild(input1Act)
+segunParrA.appendChild(input2Act)
+
+creoDiv.appendChild(primerParrA)
+creoDiv.appendChild(segunParrA)
+
+divAcabadas.appendChild(creoDiv)
+
+input1Act.onclick=()=>creoDiv.style.display = "none";
+input2Act.onclick= ()=> revertir(creoDiv);
+divTarea.remove();
+}
+
+const mostrarDatos =()=>{
+   const acabadas = document.getElementsByClassName("acabada")
+    for(let i=0; i<acabadas.length;i++){
+        acabadas[i].style.display= "block"
+    }
+}
+const botonMostrar=document.getElementsByClassName("sho")[0]
+    botonMostrar.onclick=mostrarDatos
+export{ejercicio1,ejercicio2,fraseContinuaQujote,insertAfter,cesurarTexto,tablaPrimo,estiloAletaroio,imagenesAleatorias,anadirTextoPendiente,acabarTarea};
