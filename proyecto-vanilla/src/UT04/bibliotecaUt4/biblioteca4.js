@@ -245,7 +245,7 @@ const imagenesAleatorias = () =>{
 ///Actividad 3 
 document.querySelectorAll(".tarea").forEach(v=>v.remove())
 document.querySelectorAll(".acabada").forEach(v=>v.remove())
-
+///CAMBIAR HE AÑARI ID A CADA TAREA  UUID  CRYPTO (crypto.randomuuid()) NO USAR STYLE
 const anadirTextoPendiente=()=>{
 
     const texto = document.getElementsByTagName("textarea")[0].value
@@ -283,7 +283,7 @@ const anadirTextoPendiente=()=>{
       sacoPadre.insertAdjacentElement("afterend",divCreado)
 
       input1.onclick= ()=>divCreado.remove()
-      input2.onclick= ()=> acabarTarea(divCreado)
+      input2.onclick= ()=> acabarTarea(divCreado)//Cambiar y meter la id por paramtro 
       document.getElementsByTagName("textarea")[0].value = "";
 
 }
@@ -373,7 +373,7 @@ creoDiv.appendChild(segunParrA)
 
 divAcabadas.appendChild(creoDiv)
 
-input1Act.onclick=()=>creoDiv.style.display = "none";
+input1Act.onclick=()=>creoDiv.classList.add()
 input2Act.onclick= ()=> revertir(creoDiv);
 divTarea.remove();
 }
@@ -381,7 +381,7 @@ divTarea.remove();
 const mostrarDatos =()=>{
    const acabadas = document.getElementsByClassName("acabada")
     for(let i=0; i<acabadas.length;i++){
-        acabadas[i].style.display= "block"
+        acabadas[i].style.display= "block"//Tajantemente prohibido usar el style mejor usar classList y crear clase en CSS
     }
 }
 const botonMostrar=document.getElementsByClassName("sho")[0]
