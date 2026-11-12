@@ -342,7 +342,7 @@ const revertir= (TareaAcabada)=>{
 
 
 
-const acabarTarea= (divTarea)=>{
+const acabarTarea= (divTarea)=>{ // pasar por id reformular y simplificar 
  //Extraer texto 
  const divAcabadas = document.getElementById("acabadas")
  
@@ -373,7 +373,7 @@ creoDiv.appendChild(segunParrA)
 
 divAcabadas.appendChild(creoDiv)
 
-input1Act.onclick=()=>creoDiv.classList.add()
+input1Act.onclick=()=>creoDiv.classList.add()///Arreglar 
 input2Act.onclick= ()=> revertir(creoDiv);
 divTarea.remove();
 }
