@@ -1,11 +1,11 @@
 import React from "react";
-import Pelicula from "./Pelicula";
+import PeliculaUt4 from "./PeliculaUt4";
 
 
 const ListadoPelicula=({valor})=>{
     
     return valor.map((v,i,array)=>{
-        return <Pelicula key={i} valor={v} posicion={i} />
+        return <PeliculaUt4 key={i} valor={v} posicion={i} />
     })
 
 

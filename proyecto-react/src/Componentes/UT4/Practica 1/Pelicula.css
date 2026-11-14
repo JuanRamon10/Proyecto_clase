@@ -1,0 +1,10 @@
+.tablas{
+    border: 2px,black,solid;
+    margin-bottom: 15px;
+}
+.oculto{
+    display: none;
+}
+.visible{
+    display: block ;
+}
