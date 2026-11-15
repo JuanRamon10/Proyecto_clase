@@ -1,4 +1,4 @@
-import "./Cabecera.css"
+import "./Cabezera.css"
 
 
 
