@@ -7,16 +7,21 @@ import{peliculas} from "./Componentes/UT4/Practica 1/peliculas.json"
 import ContadorLimite from './Componentes/UT3/UT03_useState/Practica 308/ContadorLimite.jsx';
 import ListaMatriculas from './Componentes/UT3/UT03_useState/Practica 309/ListaMatriculas.jsx';
 import {Route,Routes} from 'react-router-dom';
-import Inicio from './Componentes/UT4/Paginas/Inicio';
-import Contacto from './Componentes/UT4/Paginas/Contacto';
-import Productos from './Componentes/UT4/Paginas/Productos.jsx';
-import AcercaDe from './Componentes/UT4/Paginas/AcercaDe.jsx';
-import Menu from './Componentes/UT4/Menu/Menu.jsx'
+
 import Error from './Componentes/UT4/Paginas/Error.jsx';
+import Contenido from './Componentes/UT4/Estructura07/Contenido.jsx';
+import Cabezera from './Componentes/UT4/Estructura07/Cabezera.jsx';
+import Menu from './Componentes/UT4/Estructura07/Menu.jsx';
+import Footer from './Componentes/UT4/Estructura07/Footer.jsx';
+import Inicio from './Componentes/UT4/Paginas07/Inicio.jsx';
+import Galeria from './Componentes/UT4/Paginas07/Galeria.jsx';
+import Interpretes from './Componentes/UT4/Paginas07/Interpretes.jsx';
+import AcercaDe from './Componentes/UT4/Paginas07/AcercaDe.jsx';
+import Peliculas from './Componentes/UT4/Paginas07/Peliculas.jsx';
 function App() {
 
   return (
-    <>
+    /*<>
     <Menu/>  
     <Routes>
         <Route path='/' element={<Inicio/>}></Route>
@@ -28,8 +33,25 @@ function App() {
     </Routes>
 
 
-    </>
+    </> children son los hijo de contenido en este caso Routes*/
+  <>
+    <Cabezera/>
+    <Menu/>
+    <Contenido>
+      <Routes>
+        <Route path="/" element={<Inicio/>}></Route>
+        <Route path="/galeria" element={<Galeria/>}></Route>
+        <Route path="/interpretes" element={<Interpretes/>}></Route>
+        <Route path="/acercade" element={<AcercaDe/>}></Route>
+        <Route path="/peliculas" element={<Peliculas/>}></Route>
+        <Route path='*' element={<Error/>}></Route>
+      </Routes>
+    </Contenido>
+    <Footer/>
+
+  </>
   );
+  
 }
 
 export default App
