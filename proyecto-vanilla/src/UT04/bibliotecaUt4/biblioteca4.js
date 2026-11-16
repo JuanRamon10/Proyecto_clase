@@ -247,7 +247,7 @@ document.querySelectorAll(".tarea").forEach(v=>v.remove())
 document.querySelectorAll(".acabada").forEach(v=>v.remove())
 ///CAMBIAR HE AÑARI ID A CADA TAREA  UUID  CRYPTO (crypto.randomuuid()) NO USAR STYLE
 const anadirTextoPendiente=()=>{
-
+    const idTarea = crypto.randomUUID();
     const texto = document.getElementsByTagName("textarea")[0].value
         if(texto===""){
             alert("Eres tonto,pon algo")
@@ -257,6 +257,7 @@ const anadirTextoPendiente=()=>{
 
      let divCreado= document.createElement("div")
         divCreado.setAttribute("class","tarea")
+        divCreado.setAttribute("id",idTarea)
 
        const primerParr= document.createElement("p")
        const segundoParr= document.createElement("p")
@@ -283,7 +284,7 @@ const anadirTextoPendiente=()=>{
       sacoPadre.insertAdjacentElement("afterend",divCreado)
 
       input1.onclick= ()=>divCreado.remove()
-      input2.onclick= ()=> acabarTarea(divCreado)//Cambiar y meter la id por paramtro 
+      input2.onclick= ()=> acabarTarea(idTarea)//Cambiar y meter la id por paramtro 
       document.getElementsByTagName("textarea")[0].value = "";
 
 }
@@ -292,17 +293,30 @@ botonAnnadir.onclick = anadirTextoPendiente
 
 
     
-const revertir= (TareaAcabada)=>{
+const revertir= (idTarea)=>{
  //Extraer texto 
 
- const texto = TareaAcabada.getElementsByTagName("p")[0].textContent
-
+ const tareaRegreada = document.getElementById(idTarea)
 
  const sacoPadre =document.getElementById("pendientes").getElementsByTagName("h1")[0]
-
+    
+    tareaRegreada.setAttribute("class", "tarea")
+    sacoPadre.insertAdjacentElement("afterend",tareaRegreada)
+     const input1 =tareaRegreada.getElementsByTagName("input")[0]
+     const input2 =tareaRegreada.getElementsByTagName("input")[1]
+   
+        input1.setAttribute("class", "del")
+        input1.value ="Borrar"
+        input2.setAttribute("class", "end")
+        input2.value ="Acabar"
+        input1.onclick= ()=>tareaRegreada.remove()
+        input2.onclick= ()=> acabarTarea(idTarea)
+      //input1.onclick= ()=>tareaRegreada.remove()
+      //input2.onclick= ()=> acabarTarea(idTarea)
+/*
      let divCreado= document.createElement("div")
         divCreado.setAttribute("class","tarea")
-    
+
        const primerParr= document.createElement("p")
        const segundoParr= document.createElement("p")
  
@@ -330,21 +344,37 @@ const revertir= (TareaAcabada)=>{
 
       input1.onclick= ()=>divCreado.remove()
       input2.onclick= ()=> acabarTarea(divCreado)
+TareaAcabada.remove()
+*/
 
 
 
-
-
- TareaAcabada.remove()
+ 
 
 
 }
 
 
 
-const acabarTarea= (divTarea)=>{ // pasar por id reformular y simplificar 
+const acabarTarea= (idTarea)=>{ // pasar por id reformular y simplificar 
  //Extraer texto 
- const divAcabadas = document.getElementById("acabadas")
+ const divPendiente = document.getElementById(idTarea)
+const divAcabadas = document.getElementById("acabadas").getElementsByTagName("h1")[0]
+
+divPendiente.setAttribute("class", "acabada")
+    divAcabadas.insertAdjacentElement("afterend",divPendiente)
+    const input1 =divPendiente.getElementsByTagName("input")[0]
+    const input2 =divPendiente.getElementsByTagName("input")[1]
+    input1.setAttribute("class", "del");
+    input1.value="Archivar";
+
+    input2.setAttribute("class", "end");
+    input2.value="Volver";
+
+    input1.onclick=()=>archivar(idTarea)
+    input2.onclick=()=>revertir(idTarea)
+/*
+ 
  
     const creoDiv = document.createElement("div") 
     creoDiv.setAttribute("class", "acabada")
@@ -376,12 +406,20 @@ divAcabadas.appendChild(creoDiv)
 input1Act.onclick=()=>creoDiv.classList.add()///Arreglar 
 input2Act.onclick= ()=> revertir(creoDiv);
 divTarea.remove();
+ */
+}
+const archivar = (idTarea)=>{
+    const  tareasArchivar = document.getElementById(idTarea)//No pongo indice porque id es unico en toda la pagina si lo pusiera me daria undefinded es decir ya saco de por si todo el elemento
+    console.log(tareasArchivar[0])
+    tareasArchivar.classList.add("oculto")
+   
+
 }
 
 const mostrarDatos =()=>{
    const acabadas = document.getElementsByClassName("acabada")
     for(let i=0; i<acabadas.length;i++){
-        acabadas[i].style.display= "block"//Tajantemente prohibido usar el style mejor usar classList y crear clase en CSS
+        acabadas[i].classList.replace("oculto","mostrar")//Tajantemente prohibido usar el style mejor usar classList y crear clase en CSS
     }
 }
 const botonMostrar=document.getElementsByClassName("sho")[0]
