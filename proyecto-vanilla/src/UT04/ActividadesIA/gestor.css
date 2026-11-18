@@ -41,7 +41,7 @@
 }
 
 .mostrar {
-  text-align: right;
+  display: block;
 }
 
 .oculto {
