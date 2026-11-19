@@ -43,7 +43,7 @@ function App() {
         <Route path="/galeria" element={<Galeria/>}></Route>
         <Route path="/interpretes" element={<Interpretes/>}></Route>
         <Route path="/acercade" element={<AcercaDe/>}></Route>
-        <Route path="/peliculas" element={<Peliculas/>}></Route>
+        <Route path="/peliculas" element={<Peliculas valor={peliculas}/>}></Route>
         <Route path='*' element={<Error/>}></Route>
       </Routes>
     </Contenido>
