@@ -1,27 +1,36 @@
 
 import PeliculaDetalle from "./PeliculaDetalle.jsx";
-
+import PeliculaSimple from "./PeliculaSimple.jsx";
+import {Outlet, useParams} from "react-router-dom"
 const Peliculas= ({valor})=>{
-    let {nombre: titulo, cartelera: imagen } = valor
+   
+   
 
-   valor.map((v,i,array)=>{
-        return (
-            <>
-                <div>
-                    
-                    <PeliculaDetalle id={i} valor={} />
-                </div>
-            </>
-        )
-    })
 
+    const mostrarListaSimplePelicula = ()=>{
+
+           return ( valor.map((v,i,array)=>{
+                    return (
+                        <>
+                            <div>
+                                <PeliculaSimple key ={i} valor={v}>
+                                 
+                                 </PeliculaSimple>
+                                
+                            </div>
+                        </>
+                    )
+                }))
+
+    }
+ 
+//Error mio metert el outlet en el map
     return(
     <>
         <div>
             <h2>Peliculas</h2>
-            <h3>{titulo}</h3>
-            <img src={imagen} alt="" />
-            
+            {mostrarListaSimplePelicula()}
+            <Outlet/>
             
         </div>
     </>
