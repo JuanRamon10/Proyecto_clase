@@ -9,16 +9,19 @@ import ListaMatriculas from './Componentes/UT3/UT03_useState/Practica 309/ListaM
 import {Route,Routes} from 'react-router-dom';
 
 import Error from './Componentes/UT4/Paginas/Error.jsx';
-import Contenido from './Componentes/UT4/Estructura07/Contenido.jsx';
-import Cabezera from './Componentes/UT4/Estructura07/Cabezera.jsx';
-import Menu from './Componentes/UT4/Estructura07/Menu.jsx';
-import Footer from './Componentes/UT4/Estructura07/Footer.jsx';
-import Inicio from './Componentes/UT4/Paginas07/Inicio.jsx';
-import Galeria from './Componentes/UT4/Paginas07/Galeria.jsx';
-import Interpretes from './Componentes/UT4/Paginas07/Interpretes.jsx';
-import AcercaDe from './Componentes/UT4/Paginas07/AcercaDe.jsx';
-import Peliculas from './Componentes/UT4/Paginas07/Peliculas.jsx';
-import PeliculaDetalle from './Componentes/UT4/Paginas07/PeliculaDetalle.jsx'
+import Contenido from './Componentes/UT4/Componentes07/Estructura07/Contenido.jsx';
+import Cabezera from './Componentes/UT4/Componentes07/Estructura07/Cabezera.jsx';
+import Menu from './Componentes/UT4/Componentes07/Estructura07/Menu.jsx';
+import Footer from './Componentes/UT4/Componentes07/Estructura07/Footer.jsx';
+import Inicio from './Componentes/UT4/Componentes07/Paginas07/Inicio.jsx';
+import Galeria from './Componentes/UT4/Componentes07/Paginas07/Galeria.jsx';
+import Interpretes from './Componentes/UT4/Componentes07/Paginas07/Interpretes.jsx';
+import AcercaDe from './Componentes/UT4/Componentes07/Paginas07/AcercaDe.jsx';
+import Peliculas from './Componentes/UT4/Componentes07/Paginas07/Peliculas.jsx';
+import PeliculaDetalle from './Componentes/UT4/Componentes07/Paginas07/PeliculaDetalle.jsx'
+import FiltroDirector from './Componentes/UT4/Componentes07/Paginas07/Filtros/FiltroDirector.jsx';
+import FiltroInterprete from './Componentes/UT4/Componentes07/Paginas07/Filtros/FiltroInterprete.jsx';
+import FiltroTitulo from './Componentes/UT4/Componentes07/Paginas07/Filtros/FiltroTitulo.jsx';
 function App() {
 
   return (
@@ -41,7 +44,11 @@ function App() {
     <Contenido>
       <Routes>
         <Route path="/" element={<Inicio/>}></Route>
-        <Route path="/galeria" element={<Galeria/>}></Route>
+        <Route path="/galeria" element={<Galeria/>}>
+          <Route path='director' element={<FiltroDirector/>}></Route>
+          <Route path='interprete' element={<FiltroInterprete/>}></Route>
+          <Route path='titulo' element={<FiltroTitulo/>}></Route>
+        </Route>
         <Route path="/interpretes" element={<Interpretes/>}></Route>
         <Route path="/acercade" element={<AcercaDe/>}></Route>
         <Route path="/peliculas" element={<Peliculas valor={peliculas}/>}>
