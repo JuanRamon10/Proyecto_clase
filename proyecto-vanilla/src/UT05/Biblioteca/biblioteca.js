@@ -28,4 +28,16 @@ const crearP= (string1, string2)=>{
     document.body.insertAdjacentHTML("afterbegin",`<p>La posicion x:${string1}, la posicion y:${string2}</p>`)
 }
 
+
+//Actividad 2
+
+
+
+
+
+
+
+
+
+
 export{intervaloHola,pararSaludo,hexadecimalAleatorio,crearP}
