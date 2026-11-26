@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .td_rojo{
+            background-color: red;
+        }
+        .td_negro{
+            background-color: black;
+        }
+        .td_blanco{
+            background-color: white;
+        }
+        .td_verde{
+            background-color:rgb(60, 255, 0);
+        }
+        .td_azul{
+            background-color: rgb(0, 183, 255);
+        }
+        .td_amarillo{
+            background-color: rgb(255, 230, 0);
+        }                        
+        .rojo{
+            border-radius: 50% ;
+            background-color: red;
+            width: 25px;
+            height: 25px;
+            border: 3px black solid;
+
+        }
+        .negro{
+            border-radius: 50% ;
+            background-color: rgb(0, 0, 0);
+            width: 25px;
+            height: 25px;
+
+        }
+        .blanco{
+            border-radius: 50% ;
+            background-color: rgb(255, 255, 255);
+            width: 25px;
+            height: 25px;
+            border: 3px black solid;
+        }
+        .amarillo{
+            border-radius: 50% ;
+            background-color: rgb(255, 230, 0);
+            width: 25px;
+            height: 25px;
+            border: 3px black solid;
+
+        }
+        .azul{
+            border-radius: 50% ;
+            background-color: rgb(0, 183, 255);
+            width: 25px;
+            height: 25px;
+            border: 3px black solid;
+ 
+        }
+        .verde{
+            border-radius: 50% ;
+            background-color: rgb(60, 255, 0);
+            width: 25px;
+            height: 25px;
+            border: 3px black solid;
+      
+        }
+        .menu-color{
+            display: flex;
+             background-color: aliceblue;
+        }
+        .borrar{
+            border: 3px solid black;
+            padding: 10px;
+        }
+        body{
+    background-color: #f5edda;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: Arial, sans-serif;        }
+           
+        table td {
+    width: 10px;
+    height: 10px;
+    border: 1px solid #ccc;
+    background-color: white;
+    padding: 0;
+    }
+    .tabla{
+    border-collapse: collapse;
+    }
+    .div1{
+        border: 3px solid black;
+    }
+    .div2{
+        border: 3px solid black;
+
+    }    
+    </style>
+</head>
+<body>
+
+
+    <div class="div1">
+        <h2>Colores</h2>
+        <div class="menu-color">
+        <div class="blanco"></div>
+        <div class="negro"></div>
+        <div class="rojo"></div>
+        <div class="amarillo"></div>
+        <div class="verde"></div>
+        <div class="azul"></div>
+        </div>
+        <div class="borrar">Borrar</div>
+    </div>
+
+
+    <div class="div2">
+       
+
+        
+            <table class="tabla">
+
+            </table>
+       
+    </div>
+
+
+    <script type="module" src="./main.js"></script>
+</body>
+</html>

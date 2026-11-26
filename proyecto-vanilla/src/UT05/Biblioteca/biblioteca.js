@@ -34,10 +34,48 @@ const crearP= (string1, string2)=>{
 
 
 
+//Actividad 3
 
 
+const insertarTabla =()=>{
+
+    const tabla =document.getElementsByClassName("tabla")[0]
+    for( let i = 0; i<60; i++){
+        tabla.insertAdjacentHTML("beforeend","<tr></tr>");
+        for( let j = 0; j<60; j++){
+            const tr =tabla.getElementsByTagName("tr")[i]
+            tr.insertAdjacentHTML("beforeend","<td></td>");
+    }
+    }
+}
+
+const colorPintar=(colorSeleccionado)=>{
+    if(colorSeleccionado === "blanco"){
+                return "td_blanco"
+
+            }else if(colorSeleccionado === "negro"){
+                return "td_negro"
+
+            }else if(colorSeleccionado === "amarillo"){
+                return "td_amarillo"
+
+            }else if(colorSeleccionado === "rojo"){
+                return "td_rojo"
+
+            }else if(colorSeleccionado === "azul"){
+                return "td_azul"
+
+            }else if(colorSeleccionado === "verde"){
+               return "td_verde"
+
+            } 
+}
+
+function borrarColores(){
+    document.querySelectorAll("td").forEach((v)=>{
+        v.className="td_blanco"
+    })
+}
 
 
-
-
-export{intervaloHola,pararSaludo,hexadecimalAleatorio,crearP}
+export{intervaloHola,pararSaludo,hexadecimalAleatorio,crearP,insertarTabla,colorPintar,borrarColores}
